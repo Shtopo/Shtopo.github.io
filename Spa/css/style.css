@@ -1013,6 +1013,10 @@ a.footer-logo{
 	.services-card__img_massage{
 		margin-top: 5px;
 	}
+	.mfp-container{
+		height: 0;
+		top: 5%;
+	}
 	.footer-socials__img:nth-child(1){
 		
 	}
