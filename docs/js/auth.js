@@ -1,23 +1,30 @@
+// docs/js/auth.js
+
 import { API_URL } from "./config.js";
 
 document.querySelector("#login-form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector("#email").value;
-  const password = document.querySelector("#password").value;
+  const email = document.querySelector("#email").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
-  const response = await fetch(`${API_URL}/api/login`, {
-    method: "POST",
-    body: JSON.stringify({ email, password }),
-    headers: { "Content-Type": "application/json" },
-  });
+  try {
+    const response = await fetch(`${API_URL}/api/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
 
-  const data = await response.json();
+    const data = await response.text();
 
-  if (response.ok) {
-    alert("Вход выполнен! Ваш токен: " + data.token);
-    localStorage.setItem("authToken", data.token);
-  } else {
-    alert("Ошибка: " + data.message);
+    if (response.ok) {
+      alert("Вход выполнен! Ваш токен: " + data);
+      localStorage.setItem("authToken", data);
+    } else {
+      alert("Ошибка: " + data);
+    }
+  } catch (err) {
+    console.error("Ошибка при попытке войти:", err);
+    alert("Не удалось связаться с сервером");
   }
 });
