@@ -118,6 +118,19 @@ body {
     display: flex;
     align-items: center;
     gap: 0 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header__user:after {
+    content: "";
+    display: inline-flex;
+    align-items: center;
+    background: url(../img/user-login-close.svg) center no-repeat;
+    width: 13px;
+    height: 12px;
+    margin: 0 0 0 12px;
+    transition: all 0.3s ease;
 }
 .header__nav-item a {
     color: #47622b;
