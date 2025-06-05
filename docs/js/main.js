@@ -14,13 +14,14 @@ window.addEventListener("DOMContentLoaded", async () => {
   const userNameEl = document.getElementById("user-name");
 
   if (token && userId) {
+    console.log("main.js: Есть token и userId. Показываем профиль.");
     // Скрываем ссылку «Войти»
     loginLink?.classList.add("hidden");
     // Показываем блок с аватаром/именем
     userInfo?.classList.remove("hidden");
 
     try {
-      // Запрашиваем данные профиля у API
+      // Запрашиваем данные профиля (GET /Users/GetUser?userId=...)
       const response = await fetch(
         `${API_URL}/Users/GetUser?userId=${encodeURIComponent(userId)}`,
         {
@@ -28,6 +29,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
       );
 
+      console.log("GetUser status:", response.status);
       if (response.ok) {
         const user = await response.json();
         // Подставляем имя пользователя
@@ -37,24 +39,32 @@ window.addEventListener("DOMContentLoaded", async () => {
         // Если API вернул ссылку на аватар (например user.AvatarUrl), можно её использовать:
         // avatarImg.src = user.AvatarUrl || "img/user-login.svg";
         if (avatarImg) {
-          avatarImg.src = "img/user-login.svg"; // ваша уже готовая иконка
+          avatarImg.src = "img/user-login.svg";
         }
-      } else {
-        // Если получили ошибку (например 401), сбрасываем авторизацию:
+      } else if (response.status === 401 || response.status === 403) {
+        console.warn("Токен просрочен или недействителен — выходим");
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
         userInfo?.classList.add("hidden");
         loginLink?.classList.remove("hidden");
+      } else if (response.status === 404) {
+        console.error("GetUser вернул 404 — пользователь не найден (userId может быть неверен)");
+        // Лучше не удалять токен сразу, но скрыть профиль:
+        userInfo?.classList.add("hidden");
+        loginLink?.classList.remove("hidden");
+      } else {
+        console.error("Неизвестная ошибка GetUser:", response.status);
       }
     } catch (err) {
       console.error("Ошибка при получении данных пользователя:", err);
-      // При сетевой ошибке тоже сбрасываем авторизацию:
+      // При сетевой ошибке — сбрасываем авторизацию
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
       userInfo?.classList.add("hidden");
       loginLink?.classList.remove("hidden");
     }
   } else {
+    console.log("main.js: Нет токена или userId — показываем кнопку «Войти»");
     // Если не авторизован: показываем ссылку «Войти» и скрываем блок с именем
     loginLink?.classList.remove("hidden");
     userInfo?.classList.add("hidden");
@@ -67,18 +77,18 @@ window.addEventListener("DOMContentLoaded", async () => {
   const menuClose = document.querySelector('.menu--close');
 
   navBtn?.addEventListener('click', () => {
-    navList.classList.toggle('header__nav-list--open');
-    menuClose.classList.toggle('menu--open');
+    navList?.classList.toggle('header__nav-list--open');
+    menuClose?.classList.toggle('menu--open');
   });
 
   navClose?.addEventListener('click', () => {
-    navList.classList.remove('header__nav-list--open');
-    menuClose.classList.remove('menu--open');
+    navList?.classList.remove('header__nav-list--open');
+    menuClose?.classList.remove('menu--open');
   });
 
   menuClose?.addEventListener('click', () => {
-    navList.classList.remove('header__nav-list--open');
-    menuClose.classList.remove('menu--open');
+    navList?.classList.remove('header__nav-list--open');
+    menuClose?.classList.remove('menu--open');
   });
 
   // ====== 3. Скролл до секции при клике на «Забронювати стіл» или «Тables» ======
