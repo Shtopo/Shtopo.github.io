@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         const user = await response.json();
         // Подставляем имя пользователя
         if (userNameEl) {
-          userNameEl.textContent = user.Name;
+          userNameEl.textContent = user.name;
         }
         // Если API вернул ссылку на аватар (например user.AvatarUrl), можно её использовать:
         // avatarImg.src = user.AvatarUrl || "img/user-login.svg";
