@@ -7,33 +7,36 @@ const registerForm = document.getElementById("register-form");
 registerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Значення полів форми
   const userName        = document.getElementById("userName").value.trim();
   const email           = document.getElementById("email").value.trim();
   const password        = document.getElementById("password").value.trim();
   const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-  // Перевірка на заповненість полів
   if (password !== confirmPassword) {
     alert("Паролі не співпадають");
     return;
   }
 
   try {
-    // Основний fetch-запит на реєстрацію
-    const response = await fetch(`${API_URL}/Users/CreateUser`, {
+    // Виклик маршруту Register
+    const response = await fetch(`${API_URL}/Users/Register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userName, email, password })
     });
 
-    const data = await response.text(); // сервер повертає plain-text з ID або помилку
+    // Чекаємо JSON { token, userId }
+    const result = await response.json();
 
     if (response.ok) {
-      alert("Реєстрація успішна! Ваш ID: " + data);
-      window.location.href = "login.html";
+      // Зберігаємо отриманий token та userId
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("userId",  result.userId);
+
+      alert("Реєстрація успішна! Ви автоматично увійшли до системи.");
+      window.location.href = "index.html";
     } else {
-      alert("Помилка реєстрації: " + data);
+      alert("Помилка реєстрації: " + (result.message || JSON.stringify(result)));
     }
   } catch (err) {
     console.error("Помилка при спробі зареєструватися:", err);
