@@ -4,7 +4,7 @@ import { API_URL } from "./config.js";
 
 const registerForm = document.getElementById("register-form");
 
-registerForm.addEventListener("submit", async (event) => {
+registerForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const userName        = document.getElementById("userName").value.trim();
@@ -18,26 +18,29 @@ registerForm.addEventListener("submit", async (event) => {
   }
 
   try {
-    // Виклик маршруту Register
     const response = await fetch(`${API_URL}/Users/Register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userName, email, password })
     });
 
-    // Чекаємо JSON { token, userId }
-    const result = await response.json();
-
-    if (response.ok) {
-      // Зберігаємо отриманий token та userId
-      localStorage.setItem("token", result.token);
-      localStorage.setItem("userId",  result.userId);
-
-      alert("Реєстрація успішна! Ви автоматично увійшли до системи.");
-      window.location.href = "index.html";
-    } else {
-      alert("Помилка реєстрації: " + (result.message || JSON.stringify(result)));
+    if (!response.ok) {
+      const errorText = await response.text();
+      alert("Помилка реєстрації: " + errorText);
+      return;
     }
+
+    // Ждём JSON { token, userId }
+    const result = await response.json();
+    const token  = result.token;
+    const userId = result.userId;
+
+    // Сохраняем сразу и token, и userId
+    localStorage.setItem("token", token);
+    localStorage.setItem("userId", String(userId));
+
+    // Перенаправляем на главную
+    window.location.href = "index.html";
   } catch (err) {
     console.error("Помилка при спробі зареєструватися:", err);
     alert("Не вдалося зв'язатися з сервером");
