@@ -22,9 +22,13 @@ document.querySelector("#login-form")?.addEventListener("submit", async (event) 
       return;
     }
 
+    // 1) Читаем JWT как plain text
     const token = await response.text();
+
+    // 2) Сохраняем JWT в localStorage
     localStorage.setItem("token", token);
 
+    // 3) Раскодируем payload JWT и ставим userId
     try {
       let payloadBase64 = token.split(".")[1];
       payloadBase64 = payloadBase64.replace(/-/g, "+").replace(/_/g, "/");
@@ -36,11 +40,14 @@ document.querySelector("#login-form")?.addEventListener("submit", async (event) 
       const userId = payload.nameid || payload.sub || payload.userId;
       if (userId) {
         localStorage.setItem("userId", String(userId));
+      } else {
+        console.warn("userId не найден в токене");
       }
     } catch {
       console.warn("Не удалось извлечь userId из токена.");
     }
 
+    // 4) Редиректим на главную страницу
     window.location.href = "index.html";
   } catch (err) {
     console.error("Ошибка при попытке войти:", err);
@@ -48,32 +55,47 @@ document.querySelector("#login-form")?.addEventListener("submit", async (event) 
   }
 });
 
-
-// === Регистрация (если форма есть) ===
+// === Регистрация ===
 document.querySelector("#register-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const email    = document.querySelector("#register-email").value.trim();
-  const password = document.querySelector("#register-password").value.trim();
+  const userName        = document.getElementById("userName")?.value.trim();
+  const email           = document.getElementById("email")?.value.trim();
+  const password        = document.getElementById("password")?.value.trim();
+  const confirmPassword = document.getElementById("confirmPassword")?.value.trim();
+
+  if (password !== confirmPassword) {
+    alert("Паролі не співпадають");
+    return;
+  }
 
   try {
-    const response = await fetch(`${API_URL}/api/register`, {
+    // 1) Отправляем POST /Users/Register
+    const response = await fetch(`${API_URL}/Users/Register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ userName, email, password })
     });
 
     if (!response.ok) {
       const errorText = await response.text();
-      alert("Ошибка регистрации: " + errorText);
+      alert("Помилка реєстрації: " + errorText);
       return;
     }
 
-    // ✅ Убираем alert об успешной регистрации
-    // ✅ Перенаправляем на главную
+    // 2) Ожидаем { token, userId } в JSON
+    const result = await response.json();
+    const token  = result.token;
+    const userId = result.userId;
+
+    // 3) Сохраняем сразу и token, и userId
+    localStorage.setItem("token", token);
+    localStorage.setItem("userId", String(userId));
+
+    // 4) Редиректим на главную без alert
     window.location.href = "index.html";
   } catch (err) {
-    console.error("Ошибка при попытке зарегистрироваться:", err);
-    alert("Не удалось связаться с сервером");
+    console.error("Помилка при спробі зареєструватися:", err);
+    alert("Не вдалося зв'язатися з сервером");
   }
 });
