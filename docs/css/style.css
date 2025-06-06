@@ -558,6 +558,24 @@ body {
     .header__user-info span {
         text-align: center;
     }
+
+    .header__user-menu-wrapper {
+        padding-top: 0;
+        padding-bottom: 1px;
+    }
+
+    .header__user-menu-wrapper ul li {
+        margin: 0px 0 7px;
+    }
+
+    .header__user-menu-wrapper ul {
+        text-align: center;
+    }
+
+    .header__user-menu-wrapper ul li a{
+        font-size: 12px;
+
+    }
     .blockquote {
         max-width: 600px;
     }
