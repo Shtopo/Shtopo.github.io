@@ -114,13 +114,69 @@ body {
     display: none;
 }
 
+.header-login {
+    position: relative;
+}
+
 .header__user {
     display: flex;
     align-items: center;
     gap: 0 20px;
     cursor: pointer;
+    position: relative;
 }
 
+.header__user-menu {
+    position: absolute;
+    top: 100%;
+    width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(-25px);
+    z-index: 1;
+    height: auto;
+}
+
+.header-login:hover .header__user-menu,
+.header-login:focus-within .header__user-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    transform: none;
+    z-index: 1;
+}
+
+.header__user-menu-wrapper {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin-top: 10px;
+    padding-right: 10px;    
+    background: #ffffff;
+    width: 100%;
+    box-shadow: 2px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header__user-menu-wrapper ul li {
+        margin: 0 0 13px;
+}
+
+.header__user-menu-wrapper ul li a{
+    color: #47622b;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.header__user-menu-wrapper ul li a:hover {
+    color: #F4A460;
+    transition: all 0.3s ease;
+}   
 .header__nav-item a {
     color: #47622b;
     transition: all 0.7s ease;
