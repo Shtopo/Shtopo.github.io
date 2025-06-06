@@ -138,9 +138,11 @@ body {
     z-index: 1;
     height: auto;
 }
-
-.header-login:hover .header__user-menu,
-.header-login:focus-within .header__user-menu {
+.header__user-info {
+    position: relative;
+}
+.header__user-info:hover .header__user-menu,
+.header__user-info:focus-within .header__user-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
