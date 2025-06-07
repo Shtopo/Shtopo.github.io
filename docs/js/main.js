@@ -104,4 +104,22 @@ window.addEventListener("DOMContentLoaded", async () => {
       }
     });
   });
+    // ====== 4. Обработка кнопки "Вихід" ======
+  const logoutButton = document.getElementById("logout-button");
+
+  logoutButton?.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Удаляем токен и userId из localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+
+    // Скрываем блок с именем, показываем кнопку "Войти"
+    userInfo?.classList.add("hidden");
+    loginLink?.classList.remove("hidden");
+
+    // Перенаправляем на главную или логин (по желанию)
+    window.location.href = "index.html"; // или "login.html"
+  });
+
 });
