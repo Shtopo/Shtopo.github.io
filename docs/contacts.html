@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/contacts.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/tablemap.css">
-    <title>Контакти</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -24,120 +24,92 @@
                     <a href="index.html" class="header__inner-logo">
                         <img src="img/logo.png" alt="restaurant">
                     </a>
-                    <nav class="header__inner-nav">
-                        <ul class="header__inner-list">
-                            <li class="header__inner-item">
-                                <a href="about.html" class="header__inner-link">Про нас</a>
+                    <nav class="header__nav">
+                        <button class="header__nav-btn" aria-label="Toggle navigation">
+                            <span class="header__nav-icon"></span>
+                            <span class="header__nav-icon"></span>
+                            <span class="header__nav-icon"></span>
+                        </button>
+                        <ul class="header__nav-list">
+                            <li class="header__nav-close">
+                                <button class="header__nav-close-btn" aria-label="Close navigation">
+                                    <img src="img/close.svg" alt="Close Icon">
+                                </button>
                             </li>
-                            <li class="header__inner-item">
-                                <a href="tablemap.html" class="header__inner-link">Забронювати стіл</a>
-                            </li>
-                            <li class="header__inner-item">
-                                <a href="contacts.html" class="header__inner-link">Контакти</a>
-                            </li>
-                            <li class="header__inner-item">
-                                <a href="login.html" class="header__inner-link" id="header-login-link">Увійти</a>
-                            </li>
-                            <li class="header__inner-item visually-hidden" id="header-user-info">
-                                <img src="img/user-avatar.png" alt="User Avatar" class="user-avatar" id="user-avatar">
-                                <span class="user-name" id="user-name"></span>
-                                <button class="logout-btn" id="logout-btn">Вийти</button>
-                            </li>
+                            <li class="header__nav-item"><a class="header__nav-link booking" href="index.html">Забронювати стіл</a></li>
+                            <li class="header__nav-item"><a class="header__nav-link tables" href="tablemap.html">Розміщення столів</a></li>
+                            <li class="header__nav-item"><a class="header__nav-link" href="about.html">Про нас</a></li>                        
                         </ul>
                     </nav>
-                    <div class="header__burger">
-                        <span></span>
+                    <div class="header-login">
+                        <ul class="header__user">
+                            <li class="header__user-item" id="header-login-link">
+                                <a class="header__user-link" href="login.html">
+                                    <img src="img/user.svg" alt="User Icon">
+                                </a>
+                            </li>
+                            <li class="header__user-item header__user-info hidden" id="header-user-info">                        
+                                <img id="user-avatar" src="img/user-login.svg" alt="User Avatar" />
+                                <span id="user-name"></span>
+                            </li>
+                        </ul>
+                    <div class="header__user-menu">
+                        <div class="header__user-menu-wrapper">
+                            <ul>
+                                <li>
+                                   <a href="#" id="logout-button">Вихід</a>
+                                </li>             
+                            </ul>
+                        </div>  
                     </div>
+                </div>    
                 </div>
             </div>
         </header>
 
-        <main class="main">
-            <section class="contact">
+        <main class="main-content">
+            <blockquote class="blockquote about__blockquote">
+                <p class="blockquote__text">
+                    Наші контакти
+                </p>
+            </blockquote>
+            <section id="home" class="contacts">
                 <div class="container">
-                    <div class="contact__inner">
-                        <h1 class="contact__inner-title">Наші контакти</h1>
-                        <p class="contact__inner-text">
-                            Маєте запитання чи хочете забронювати столик? Зв'яжіться з нами за допомогою наступних методів:
+                    <div class="contacts__inner">
+                        <p class="contacts__inner-title">
+                            Зв'яжіться з нами, якщо у вас є питання або бажаєте забронювати столик.
                         </p>
-                        <div class="contact__info">
-                            <div class="contact__info-item">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span>Наша адреса:</span>
-                                <address>м. Чернігів, вул. Проспект Перемоги, 1</address>
-                            </div>
-                            <div class="contact__info-item">
-                                <i class="fa-solid fa-phone"></i>
-                                <span>Телефон:</span>
-                                <a href="tel:+380991234567">+38 (099) 123-45-67</a>
-                            </div>
-                            <div class="contact__info-item">
-                                <i class="fa-solid fa-envelope"></i>
-                                <span>Email:</span>
-                                <a href="mailto:info@restaurant.com">info@restaurant.com</a>
-                            </div>
-                            <div class="contact__info-item">
-                                <i class="fa-solid fa-clock"></i>
-                                <span>Графік роботи:</span>
-                                <p>Пн-Нд: 10:00 - 23:00</p>
-                            </div>
-                        </div>
-                        <h2 class="contact__social-title">Наші соціальні мережі</h2>
+                        <p class="contacts__inner-description">
+                            <a href="tel:+380675924554"><i class="fa-solid fa-phone"></i> <span>+38 (067) 592-45-54</span></a>
+                        </p>
+                        <p class="contacts__inner-description">
+                            <a href="mailto:Shtopo1989@gmail.com"><i class="fa-solid fa-envelope"></i><span>Shtopo1989@gmail.com</span></a>
+                        </p>
+                        <p class="contacts__inner-description"><i class="fa-solid fa-clock"></i><span>Графік роботи: Пн-Нд: 10:00 - 23:00</span></p>
                         <ul class="contact__social">
-                            <li class="contact__social-link contact__social-link-facebook">
-                                <a href="https://www.facebook.com/artem.gengeley" target="_blank"><i class="fa-brands fa-facebook"></i>
+                            <li class="contact__social-link  contact__social-link-facebook">
+                                <a href="https://www.facebook.com/artem.gengeley"><i class="fa-brands fa-facebook"></i> 
                                     <span>Facebook</span>
-                                </a>
-                            </li>
+                                </a></li>
                             <li class="contact__social-link contact__social-link-linkedin">
-                                <a href="https://www.linkedin.com/in/artem-zhenzhelei/" target="_blank"><i class="fa-brands fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/artem-zhenzhelei/"><i class="fa-brands fa-linkedin"></i> 
                                     <span>Linkedin</span>
-                                </a>
-                            </li>
-                            <li class="contact__social-link contact__social-link-github">
-                                <a href="https://github.com/Shtopo/FilmsLibrary" target="_blank">
-                                    <i class="fa-brands fa-github"></i>
-                                    <span>github</span>
-                                </a>
-                            </li>
-                            <li class="contact__social-link contact__social-link-google">
-                                <a href="mailto:Shtopo1989@gmail.com" target="_blank">
-                                    <i class="fa-brands fa-google"></i>
-                                    <span>Email</span>
-                                </a>
-                            </li>
+                                </a></li>
+                            <li class="contact__social-link contact__social-link-github"><a href="https://github.com/Shtopo/FilmsLibrary">
+                                <i class="fa-brands fa-github"></i>
+                                <span>github</span>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
             </section>
         </main>
-        <blockquote class="blockquote">
-            <p class="blockquote__text">
-                Наші соціальні мережі
-            </p>
-        </blockquote>
-        <footer class="footer">
+            <footer class="footer">
             <div class="container">
-                <div class="footer__social">
-                    <div class="footer__icon">
-                        <a href="https://www.facebook.com/artem.gengeley" target="_blank" class="footer__icon-link link-1"><i class="fa-brands fa-facebook"></i></a>
-                        <span>Facebook</span>
-                    </div>
-                    <div class="footer__icon">
-                        <a href="https://www.linkedin.com/in/artem-zhenzhelei/" target="_blank" class="footer__icon-link link-2"><i class="fa-brands fa-linkedin"></i></a>
-                        <span>Linkedin</span>
-                    </div>
-                    <div class="footer__icon">
-                        <a href="https://github.com/Shtopo/FilmsLibrary" target="_blank" class="footer__icon-link link-3"><i class="fa-brands fa-github"></i></a>
-                        <span>github</span>
-                    </div>
-                    <div class="footer__icon">
-                        <a href="mailto:Shtopo1989@gmail.com" target="_blank" class="footer__icon-link link-4"><i class="fa-brands fa-google"></i></a>
-                        <span>Email</span>
-                    </div>
-                </div>
+                <p class="footer__info footer__info-contacts">© 2025 Сервіс бронювання столів. Всі права захищені.</p>
             </div>
         </footer>
+
     </div>
     <script type="module" src="js/config.js"></script>
     <script type="module" src="js/main.js"></script>
