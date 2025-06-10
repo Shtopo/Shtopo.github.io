@@ -1,0 +1,242 @@
+.blockquote__tablemap {
+    margin: 30px auto;
+}
+.map__item {
+    position: relative;
+}
+
+.map__booking {
+    position: relative;
+}
+
+.map__booking-btn {
+    font-size: 10px;
+    font-weight: 400;
+    background-color: #47622b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 25px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+.map__dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #47622b;
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map__dot:hover {
+    box-shadow: 0px 0px 0 2px hsl(133, 142%, 72%);
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+
+.map__dot--1 {
+    top: 58%;
+    left: 15%;
+}
+
+.map__dot--2 {
+    top: 50%;
+    left: 49%;
+}
+
+.map__dot--3 {
+    top: 69%;
+    left: 50%;
+}
+
+.map__dot--4 {
+    top: 60%;
+    left: 80%;
+}
+
+.map__dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD600;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.map__dot::before {
+    content: '';
+    position: absolute;
+    background-image: url('../img/line.svg');
+    width: 244px;
+    height: 130px;
+    top: -88px;
+    left: -58px;
+    opacity: 0;   
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s linear 0.3s;
+}
+
+.map__dot:hover::before {
+  transform: translateY(0);
+}
+
+.map__dot:hover::before,
+.map__dot:hover .map__dot-text,
+.map__dot:hover .map__dot-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.map__dot:hover .map__dot-text,
+.map__dot:hover .map__dot-btn {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.map__dot-text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: normal;
+    position: absolute;
+    top: -120px;
+    left: 48px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(10px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s linear 0.3s;
+    z-index: 2;
+
+}
+
+.map__dot-text::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -16px;
+    width: 160%;
+    height: 120%;
+    background: linear-gradient(90deg,rgba(202, 229, 237, 1) 0%, rgba(225, 252, 237, 1) 35%, rgba(250, 232, 232, 1) 100%);
+    filter: blur(7px);
+    z-index: -1; /* Переносим мазок назад */
+}
+
+
+.map__dot-btn {
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #47622b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 40px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s linear 0.3s;
+
+    cursor: pointer;
+    position: absolute;
+    top: -90px;
+    left: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(10px);
+    z-index: 1;
+}
+
+.map__dot-btn:hover {
+    opacity: 0.8;
+    box-shadow: 0 0 0 2px hsl(133, 142%, 72%);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1270px) {
+
+    .map__dot--3 {
+        top: 65%;
+        left: 58%;
+    }  
+}
+
+@media screen and (max-width: 768px) {
+
+    .map__dot {
+        display: none;
+    }
+
+    .map__booking-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .map__booking-btn-1 {
+        top: 57%;
+        left: 10%;
+    }
+
+    .map__booking-btn-2 {
+        top: 48%;
+        left: 43%;
+    }
+
+       .map__booking-btn-3 {
+        top: 65%;
+        left: 45%;
+    }
+
+      .map__booking-btn-4 {
+        top: 58%;
+        left: 77%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+
+    .map__booking-btn {
+      font-size: 9px;
+      width: 65px;
+      height: 20px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .map__booking-btn {
+      font-size: 8px;
+      width: 40px;
+      height: 20px;
+    }
+
+     .map__booking-btn-2 {
+        top: 45%;
+        left: 44%;
+    }
+
+}
