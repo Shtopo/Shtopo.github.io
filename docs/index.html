@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/contacts.css">
     <link rel="stylesheet" href="css/login.css">  
     <link rel="stylesheet" href="css/tablemap.css"> 
-    <title>Головна</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -24,60 +24,149 @@
                 <a href="index.html" class="header__inner-logo">
                     <img src="img/logo.png" alt="restaurant">
                 </a>
-                <nav class="header__inner-nav">
-                    <ul class="header__inner-list">
-                        <li class="header__inner-item">
-                            <a href="about.html" class="header__inner-link">Про нас</a>
+                <nav class="header__nav">
+                    <button class="header__nav-btn" aria-label="Toggle navigation">
+                        <span class="header__nav-icon"></span>
+                        <span class="header__nav-icon"></span>
+                        <span class="header__nav-icon"></span>
+                    </button>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-close">
+                            <button class="header__nav-close-btn" aria-label="Close navigation">
+                                <img src="img/close.svg" alt="Close Icon">
+                            </button>
                         </li>
-                        <li class="header__inner-item">
-                            <a href="tablemap.html" class="header__inner-link">Забронювати стіл</a>
-                        </li>
-                        <li class="header__inner-item">
-                            <a href="contacts.html" class="header__inner-link">Контакти</a>
-                        </li>
-                        <li class="header__inner-item">
-                            <a href="login.html" class="header__inner-link" id="header-login-link">Увійти</a>
-                        </li>
-                        <li class="header__inner-item visually-hidden" id="header-user-info">
-                            <img src="img/user-avatar.png" alt="User Avatar" class="user-avatar" id="user-avatar">
-                            <span class="user-name" id="user-name"></span>
-                            <button class="logout-btn" id="logout-btn">Вийти</button>
-                        </li>
+                        <li class="header__nav-item"><a class="header__nav-link booking" href="#">Забронювати стіл</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link tables" href="tablemap.html">Розміщення столів</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="about.html">Про нас</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="contacts.html">Контакти</a></li>                        
                     </ul>
                 </nav>
-                <div class="header__burger">
-                    <span></span>
-                </div>
+                <div class="header-login">
+                    <ul class="header__user">
+                        <li class="header__user-item" id="header-login-link">
+                            <a class="header__user-link" href="login.html">
+                                <img src="img/user.svg" alt="User Icon">
+                            </a>
+                        </li>
+                        <li class="header__user-item header__user-info hidden" id="header-user-info">                        
+                            <img id="user-avatar" src="img/user-login.svg" alt="User Avatar" />
+                            <span id="user-name"></span>
+                        </li>
+                    </ul>
+                    <div class="header__user-menu">
+                        <div class="header__user-menu-wrapper">
+                            <ul>
+                                <li>
+                                    <a href="#">Вихід</a>
+                                </li>             
+                            </ul>
+                        </div>  
+                    </div>
+                </div>              
             </div>
         </div>
     </header>
 
-    <main class="main">
-        <section class="top">
+    <main class="main-content">
+        <section id="home" class="top">
             <div class="container">
                 <div class="top__inner">
-                    <h1 class="top__inner-title">Ресторан "Зіркова Мрія"</h1>
-                    <h2 class="top__inner-subtitle">Місце, де смак зустрічається з атмосферою</h2>
-                    <p class="top__inner-text">
-                        Забронюйте столик сьогодні та пориньте у світ кулінарних шедеврів та затишку!
+                    <h1 class="top__title">Ласкаво просимо до сервісу бронювання столів онлайн</h1>
+                    <p class="top__description">
+                        Забронюйте стіл онлайн, оберіть зручне місце та насолоджуйтесь атмосферою.
+                        Просте бронювання, зручний інтерфейс для наших гостей.
                     </p>
-                    <a href="tablemap.html" class="top__inner-link">Забронювати стіл</a>
                 </div>
             </div>
         </section>
-        <section class="home-about">
-            <div class="container">
-                <div class="home-about__inner">
-                    <h2 class="home-about__inner-title">Про нас</h2>
-                    <p class="home-about__inner-text">
-                        Ласкаво просимо до "Зіркової Мрії" – місця, де кожен гість стає частиною нашої історії. Ми пишаємося тим, що пропонуємо неперевершену кухню, теплу атмосферу та бездоганний сервіс. Наша мета – зробити кожен ваш візит незабутнім.
+        <blockquote class="blockquote">
+            <p class="blockquote__text">
+                Ми прагнемо забезпечити найкращий сервіс для наших гостей. 
+                Ми завжди раді вітати вас!
+            </p>
+        </blockquote>
+        <section id="tables" class="tables">
+           <div class="container">
+            <div class="tables__inner">
+                <div class="tables__card-info table-card-1">
+                    <p class="tables__card-title">
+                        Стіл для двох
                     </p>
-                    <a href="about.html" class="home-about__inner-link">Дізнатись більше</a>
+                    <p class="tables__card-seats">
+                        <span class="tables__card-seats-count">2</span> місця
+                    </p>
+                    <p class="tables__card-description">
+                        Затишний стіл для романтичної вечері або зустрічі з другом.
+                    </p>
+                    <a href="#" class="tables__card-btn" data-table-id="1">Забронювати</a>
                 </div>
-            </div>
+
+                <div class="tables__card-info table-card-2">
+                    <p class="tables__card-title">
+                        Стіл для двох
+                    </p>
+                    <p class="tables__card-seats">
+                        <span class="tables__card-seats-count">2</span> місця
+                    </p>
+                    <p class="tables__card-description">
+                        Затишний стіл для романтичної вечері або зустрічі з другом.
+                    </p>
+                    <a href="#" class="tables__card-btn" data-table-id="1">Забронювати</a>
+                </div>
+
+                <div class="tables__card-info table-card-3">
+                    <p class="tables__card-title">
+                        Стіл для чотирьох
+                    </p>
+                    <p class="tables__card-seats">
+                        <span class="tables__card-seats-count">4</span> місця
+                    </p>
+                    <p class="tables__card-description">
+                        Стіл для компанії друзів або сімейної вечері.
+                    </p>
+                    <a href="#" class="tables__card-btn" data-table-id="3">Забронювати</a>
+                </div>
+
+                <div class="tables__card-info table-card-4">
+                    <p class="tables__card-title">
+                        Стіл для чотирьох
+                    </p>
+                    <p class="tables__card-seats">
+                        <span class="tables__card-seats-count">4</span> місця
+                    </p>
+                    <p class="tables__card-description">
+                        Затишний стіл для романтичної вечері або зустрічі з другом.
+                    </p>
+                    <a href="#" class="tables__card-btn" data-table-id="4">Забронювати</a>
+                </div>
+                <div id="booking-modal" class="modal hidden">
+                    <div class="modal-backdrop"></div>
+                        <div class="modal-content">
+                            <button id="booking-close" class="modal-close">&times;</button>
+                            <h2>Бронювання столу</h2>
+                            <form id="booking-form">
+                            <label>
+                                Ваше ім’я:
+                                <input type="text" id="booking-name" required />
+                            </label>
+                            <label>
+                                Номер столу:
+                                <input type="text" id="booking-table" readonly />
+                            </label>
+                            <label>
+                                Дата й час:
+                                <input type="datetime-local" id="booking-time" required />
+                            </label>
+                            <button type="submit" class="booking-modal-btn">Підтвердити</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+           </div>
         </section>
     </main>
-    <blockquote class="blockquote">
+    <blockquote class="blockquote footer__blockquote">
             <p class="blockquote__text">
                 Наші соціальні мережі
             </p>
