@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/contacts.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/tablemap.css">
-    <title>Бронювання столу</title>
+    <link rel="stylesheet" href="css/login.css"> 
+    <link rel="stylesheet" href="css/tablemap.css">  
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -24,98 +24,123 @@
                 <a href="index.html" class="header__inner-logo">
                     <img src="img/logo.png" alt="restaurant">
                 </a>
-                <nav class="header__inner-nav">
-                    <ul class="header__inner-list">
-                        <li class="header__inner-item">
-                            <a href="about.html" class="header__inner-link">Про нас</a>
+                <nav class="header__nav">
+                    <button class="header__nav-btn" aria-label="Toggle navigation">
+                        <span class="header__nav-icon"></span>
+                        <span class="header__nav-icon"></span>
+                        <span class="header__nav-icon"></span>
+                    </button>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-close">
+                            <button class="header__nav-close-btn" aria-label="Close navigation">
+                                <img src="img/close.svg" alt="Close Icon">
+                            </button>
                         </li>
-                        <li class="header__inner-item">
-                            <a href="tablemap.html" class="header__inner-link">Забронювати стіл</a>
-                        </li>
-                        <li class="header__inner-item">
-                            <a href="contacts.html" class="header__inner-link">Контакти</a>
-                        </li>
-                        <li class="header__inner-item">
-                            <a href="login.html" class="header__inner-link" id="header-login-link">Увійти</a>
-                        </li>
-                        <li class="header__inner-item visually-hidden" id="header-user-info">
-                            <img src="img/user-avatar.png" alt="User Avatar" class="user-avatar" id="user-avatar">
-                            <span class="user-name" id="user-name"></span>
-                            <button class="logout-btn" id="logout-btn">Вийти</button>
-                        </li>
+                        <li class="header__nav-item"><a class="header__nav-link booking" href="index.html">Забронювати стіл</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="about.html">Про нас</a></li>
+                        <li class="header__nav-item"><a class="header__nav-link" href="contacts.html">Контакти</a></li>                        
                     </ul>
                 </nav>
-                <div class="header__burger">
-                    <span></span>
-                </div>
+                <div class="header-login">
+                    <ul class="header__user">
+                        <li class="header__user-item" id="header-login-link">
+                            <a class="header__user-link" href="login.html">
+                                <img src="img/user.svg" alt="User Icon">
+                            </a>
+                        </li>
+                        <li class="header__user-item header__user-info hidden" id="header-user-info">                        
+                            <img id="user-avatar" src="img/user-login.svg" alt="User Avatar" />
+                            <span id="user-name"></span>
+                             <div class="header__user-menu">
+                        <div class="header__user-menu-wrapper">
+                                <ul>
+                                    <li>
+                                        <a href="#" id="logout-button">Вихід</a>
+                                    </li>             
+                                </ul>
+                            </div>  
+                        </div>
+                        </li>
+                    </ul>                 
+                </div>              
             </div>
         </div>
     </header>
-
-    <main class="main">
-        <section class="map">
-            <div class="container">
-                <div class="map__inner">
-                    <h1 class="map__inner-title">Мапа столів</h1>
-                    <div class="map__inner-container">
-                        <img src="img/table_map.png" alt="Table Map" class="map-image">
-                        <div class="table table--1" data-table-id="1"></div>
-                        <div class="table table--2" data-table-id="2"></div>
-                        <div class="table table--3" data-table-id="3"></div>
-                        <div class="table table--4" data-table-id="4"></div>
-                        <div class="table table--5" data-table-id="5"></div>
-                        <div class="table table--6" data-table-id="6"></div>
-                        <div class="table table--7" data-table-id="7"></div>
-                        <div class="table table--8" data-table-id="8"></div>
-                        <div class="table table--9" data-table-id="9"></div>
-                        <div class="table table--10" data-table-id="10"></div>
-                        <div class="table table--11" data-table-id="11"></div>
-                        <div class="table table--12" data-table-id="12"></div>
-                        <div class="table table--13" data-table-id="13"></div>
-                        <div class="table table--14" data-table-id="14"></div>
-                        <div class="table table--15" data-table-id="15"></div>
+    <blockquote class="blockquote blockquote__tablemap">
+        <p class="blockquote__text">
+            Розгляньте розмыщення столів та оберіть найбільш зручний
+        </p>
+    </blockquote>
+    <main class="main-content">
+    <section id="home" class="map">
+        <div class="container">
+            <div class="map__inner">
+                <div class="map__item">
+                    <img src="img/map.png" alt="table map" class="map__image">
+                    <a href="" class="map__booking-btn map__booking-btn-1" data-table-id="1">
+                            Бронь
+                    </a>
+                     <a href="" class="map__booking-btn map__booking-btn-2" data-table-id="2">
+                            Бронь
+                    </a>
+                     <a href="" class="map__booking-btn map__booking-btn-3" data-table-id="3">
+                            Бронь
+                    </a>
+                     <a href="" class="map__booking-btn map__booking-btn-4" data-table-id="4">
+                            Бронь
+                    </a>
+                    <div class="map__dot map__dot--1">
+                        <p class="map__dot-text">
+                            Стіл №1
+                        </p>
+                        <a href="#" class="map__dot-btn" data-table-id="1">Бронь</a>
+                    </div>
+                     <div class="map__dot map__dot--2">
+                        <p class="map__dot-text">
+                            Стіл №2
+                        </p>
+                        <a href="#" class="map__dot-btn" data-table-id="2">Бронь</a>
+                    </div>
+                     <div class="map__dot map__dot--3">
+                        <p class="map__dot-text">
+                            Стіл №3
+                        </p>
+                        <a href="#" class="map__dot-btn" data-table-id="3">Бронь</a>
+                    </div>
+                     <div class="map__dot map__dot--4">
+                        <p class="map__dot-text">
+                            Стіл №4
+                        </p>
+                        <a href="#" class="map__dot-btn" data-table-id="4">Бронь</a>
+                    </div>
+                </div>
+                <div id="booking-modal" class="modal hidden">
+                <div class="modal-backdrop"></div>
+                    <div class="modal-content">
+                        <button id="booking-close" class="modal-close">&times;</button>
+                        <h2>Бронювання столу</h2>
+                        <form id="booking-form">
+                        <label>
+                            Ваше ім’я:
+                            <input type="text" id="booking-name" required />
+                        </label>
+                        <label>
+                            Номер столу:
+                            <input type="text" id="booking-table" readonly />
+                        </label>
+                        <label>
+                            Дата й час:
+                            <input type="datetime-local" id="booking-time" required />
+                        </label>
+                        <button type="submit">Підтвердити</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="booking-list">
-            <div class="container">
-                <h2 class="booking-list__title">Ваші бронювання</h2>
-                <div class="booking-list__header">
-                    <select id="booking-filter" class="booking-list__filter">
-                        <option value="all">Всі</option>
-                        <option value="upcoming">Майбутні</option>
-                        <option value="past">Минулі</option>
-                    </select>
-                    <button id="clear-bookings-btn" class="booking-list__clear-btn">Очистити всі бронювання</button>
-                </div>
-                <ul id="bookings-container" class="booking-list__container">
-                    <p class="no-bookings-message">У вас ще немає бронювань.</p>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <div class="modal hidden">
-        <div class="modal__backdrop"></div>
-        <div class="modal__content">
-            <button class="modal__close-btn">&times;</button>
-            <h2 class="modal__title">Бронювання столу №<span id="modal-table-number"></span></h2>
-            <form class="modal__form" id="booking-form">
-                <div class="modal__form-group">
-                    <label for="customer-name">Ваше ім'я:</label>
-                    <input type="text" id="customer-name" required>
-                </div>
-                <div class="modal__form-group">
-                    <label for="booking-time">Час бронювання:</label>
-                    <input type="datetime-local" id="booking-time" required>
-                </div>
-                <button type="submit" class="modal__btn">Забронювати</button>
-            </form>
         </div>
-    </div>
-
-    <blockquote class="blockquote">
+    </section>
+    </main>
+    <blockquote class="blockquote footer__blockquote">
             <p class="blockquote__text">
                 Наші соціальні мережі
             </p>
