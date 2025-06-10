@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/contacts.css">
     <link rel="stylesheet" href="css/login.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/tablemap.css">
+    <title>Реєстрація</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -23,116 +24,81 @@
                 <a href="index.html" class="header__inner-logo">
                     <img src="img/logo.png" alt="restaurant">
                 </a>
-                <nav class="header__nav">
-                    <button class="header__nav-btn" aria-label="Toggle navigation">
-                        <span class="header__nav-icon"></span>
-                        <span class="header__nav-icon"></span>
-                        <span class="header__nav-icon"></span>
-                    </button>
-                    <ul class="header__nav-list">
-                        <li class="header__nav-close">
-                            <button class="header__nav-close-btn" aria-label="Close navigation">
-                                <img src="img/close.svg" alt="Close Icon">
-                            </button>
+                <nav class="header__inner-nav">
+                    <ul class="header__inner-list">
+                        <li class="header__inner-item">
+                            <a href="about.html" class="header__inner-link">Про нас</a>
                         </li>
-                        <li class="header__nav-item"><a class="header__nav-link booking" href="index.html">Забронювати стіл</a></li>
-                        <li class="header__nav-item"><a class="header__nav-link tables" href="#">Розміщення столів</a></li>
-                        <li class="header__nav-item"><a class="header__nav-link" href="about.html">Про нас</a></li>
-                        <li class="header__nav-item"><a class="header__nav-link" href="contacts.html">Контакти</a></li>                        
+                        <li class="header__inner-item">
+                            <a href="tablemap.html" class="header__inner-link">Забронювати стіл</a>
+                        </li>
+                        <li class="header__inner-item">
+                            <a href="contacts.html" class="header__inner-link">Контакти</a>
+                        </li>
+                        <li class="header__inner-item">
+                            <a href="login.html" class="header__inner-link" id="header-login-link">Увійти</a>
+                        </li>
+                        <li class="header__inner-item visually-hidden" id="header-user-info">
+                            <img src="img/user-avatar.png" alt="User Avatar" class="user-avatar" id="user-avatar">
+                            <span class="user-name" id="user-name"></span>
+                            <button class="logout-btn" id="logout-btn">Вийти</button>
+                        </li>
                     </ul>
                 </nav>
-                <div class="header-login">
-                    <ul class="header__user">
-                        <li class="header__user-item" id="header-login-link">
-                            <a class="header__user-link" href="login.html">
-                                <img src="img/user.svg" alt="User Icon">
-                            </a>
-                        </li>
-                        <li class="header__user-item header__user-info hidden" id="header-user-info">                        
-                            <img id="user-avatar" src="img/user-login.svg" alt="User Avatar" />
-                            <span id="user-name"></span>
-                        </li>
-                    </ul>
-                    <div class="header__user-menu">
-                        <div class="header__user-menu-wrapper">
-                            <ul>
-                                <li>
-                                    <a href="#">Вихід</a>
-                                </li>             
-                            </ul>
-                        </div>  
-                    </div>
-                </div>    
+                <div class="header__burger">
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="main-content login-content">
-        <section id="home" class="login">          
+    <main class="main">
+        <section class="login">
             <div class="container">
-                <div class="login__form-wrapper">
-                    <div class="login__inner">
-                        <div class="login__form">
-                            <h2 class="login__form-title">
-                                Реєстрація
-                            </h2>
-                            <form id="register-form">
-                                <div class="login__form-inputs">
-                                    <input 
-                                        type="text" 
-                                        id="userName" 
-                                        name="userName"
-                                        class="login__form-input" 
-                                        placeholder="Введіть ім'я користувача"
-                                        required
-                                        >
-                                    <img src="img/user.svg" alt="user icon" class="login__form-icon">
-                                </div>
-                                <div class="login__form-inputs">
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email"
-                                        class="login__form-input" 
-                                        placeholder="Введіть email"
-                                        required
-                                        >
-                                    <img src="img/user.svg" alt="user icon" class="login__form-icon">
-                                </div>
-                                 <div class="login__form-inputs">
-                                     <input 
-                                        type="password" 
-                                        id="password" 
-                                        name="password"
-                                        class="login__form-input" 
-                                        placeholder="Створити пароль"
-                                        required
-                                        >
-                                    <img src="img/lock.svg" alt="password-icon" class="login__form-icon login__form-icon--password">
-                                </div>
-                                <div class="login__form-inputs">
-                                    <input 
-                                        type="password" 
-                                        id="confirmPassword" 
-                                        name="confirmPassword"
-                                        class="login__form-input" 
-                                        placeholder="Повторити пароль"
-                                        required
-                                    >
-                                    <img src="img/lock.svg" alt="password-icon" class="login__form-icon login__form-icon--password">
-                                </div>                               
-                                <div class="login__form-inputs">
-                                    <input type="submit" value="Зареєструватись" class="login__form-input login__form-button" placeholder="Пароль" required>
-                                </div>
-                            </form>
-                            <p class="login__form-text">Ви вже маєте акаунт?<a class="register__form-button" href="login.html">Увійти</a></p>
-                        </div>
+                <div class="login__inner">
+                    <div class="login__inner-content">
+                        <h1 class="login__inner-title">Реєстрація</h1>
+                        <p class="login__inner-descr">Будь ласка, заповніть форму для створення нового облікового запису.</p>
+                        <form class="login__inner-form" id="register-form">
+                            <input
+                                type="text"
+                                class="login__inner-input"
+                                id="userName"
+                                placeholder="Ім'я користувача"
+                                required
+                            >
+                            <input
+                                type="email"
+                                class="login__inner-input"
+                                id="email"
+                                placeholder="Email"
+                                required
+                            >
+                            <input
+                                type="password"
+                                class="login__inner-input"
+                                id="password"
+                                placeholder="Пароль"
+                                required
+                            >
+                            <input
+                                type="password"
+                                class="login__inner-input"
+                                id="confirmPassword"
+                                placeholder="Підтвердіть пароль"
+                                required
+                            >
+                            <p class="login__inner-message" id="form-message"></p>
+                            <button type="submit" class="login__inner-btn">Зареєструватися</button>
+                            <a href="login.html" class="login__inner-link">Уже є обліковий запис? Увійти</a>
+                        </form>
                     </div>
-                </div>                
+                </div>
             </div>
         </section>
     </main>
-    <blockquote class="blockquote footer__blockquote">
+
+    <blockquote class="blockquote">
             <p class="blockquote__text">
                 Наші соціальні мережі
             </p>
