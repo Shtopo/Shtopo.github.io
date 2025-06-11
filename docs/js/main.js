@@ -215,11 +215,12 @@ window.addEventListener("DOMContentLoaded", async () => {
                         })
                     },
                     body: JSON.stringify({
-                        CustomerName,
-                        TableId,
-                        BookingTime: isoWithSeconds
+                        customerName: CustomerName,
+                        tableId: TableId,
+                        bookingTime: isoWithSeconds
                     })
                 });
+
 
                 if (!res.ok) {
                     const errorText = await res.text();
