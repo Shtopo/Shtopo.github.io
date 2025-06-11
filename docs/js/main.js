@@ -192,7 +192,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       const customerName = nameInput.value.trim();
       const tableId = parseInt(tableInput.value, 10);
       const bookingTime = timeInput.value;
-
+      console.log("Перед отправкой формы:", { customerName, tableId, bookingTime });
       if (!customerName || !bookingTime) {
         alert("Заповніть всі поля!");
         return;
