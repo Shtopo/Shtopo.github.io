@@ -41,17 +41,17 @@ document.querySelector("#login-form")?.addEventListener("submit", async (event) 
       if (userId) {
         localStorage.setItem("userId", String(userId));
       } else {
-        console.warn("userId не найден в токене");
+        console.warn("userId не знайдений в токені");
       }
     } catch {
-      console.warn("Не удалось извлечь userId из токена.");
+      console.warn("Не вдалось взяти userId з токену.");
     }
 
     // 4) Редиректим на главную страницу
     window.location.href = "index.html";
   } catch (err) {
-    console.error("Ошибка при попытке войти:", err);
-    alert("Не удалось связаться с сервером");
+    console.error("Помилка при намаганні увійти:", err);
+    alert("Не вдалось зв'язатись з сервером");
   }
 });
 
@@ -96,6 +96,6 @@ document.querySelector("#register-form")?.addEventListener("submit", async (even
     window.location.href = "index.html";
   } catch (err) {
     console.error("Помилка при спробі зареєструватися:", err);
-    alert("Не вдалося зв'язатися з сервером");
+    alert("Не вдалося зв'язатись з сервером");
   }
 });
