@@ -164,6 +164,13 @@ window.addEventListener("DOMContentLoaded", async () => {
         timeInput.value  = "";
 
         modal.classList.remove("hidden");
+
+        console.log({
+        customerName: nameInput.value.trim(),
+        tableId: parseInt(tableInput.value, 10),
+        bookingTime: timeInput.value
+        });
+
       });
     });
 
