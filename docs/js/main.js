@@ -158,8 +158,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         if (!tableInput || !nameInput || !timeInput) return;
 
-        const tableId = btn.getAttribute("data-table-id") || "";
-        tableInput.value = tableId;
+        const TableId = btn.getAttribute("data-table-id") || "";
+        tableInput.value = TableId;
         nameInput.value  = "";
         timeInput.value  = "";
 
@@ -182,14 +182,14 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       if (!nameInput || !tableInput || !timeInput) return;
 
-      const customerName = nameInput.value.trim();
-      const tableId = parseInt(tableInput.value, 10);
-      const bookingTime = timeInput.value;
+      const CustomerName = nameInput.value.trim();
+      const TableId = parseInt(tableInput.value, 10);
+      const BookingTime = timeInput.value;
 
-      if (!customerName || !bookingTime) {
-        alert("Заповніть всі поля!");
-        return;
-      }
+      if (!CustomerName || !BookingTime || isNaN(TableId) || TableId <= 0) {
+      alert("Заповніть всі поля коректно!");
+      return;
+    }
 
       try {
         const token = localStorage.getItem("token");
@@ -199,7 +199,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             "Content-Type": "application/json",
             ...(token && { "Authorization": "Bearer " + token })
           },
-          body: JSON.stringify({ customerName, tableId, bookingTime })
+          body: JSON.stringify({ CustomerName, TableId, BookingTime })
         });
 
         if (!res.ok) {
