@@ -185,6 +185,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       const CustomerName = nameInput.value.trim();
       const TableId = parseInt(tableInput.value, 10);
       const BookingTime = timeInput.value;
+      const isoWithSeconds = new Date(BookingTime).toISOString();
 
       if (!CustomerName || !BookingTime || isNaN(TableId) || TableId <= 0) {
       alert("Заповніть всі поля коректно!");
@@ -199,7 +200,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             "Content-Type": "application/json",
             ...(token && { "Authorization": "Bearer " + token })
           },
-          body: JSON.stringify({ CustomerName, TableId, BookingTime })
+          body: JSON.stringify({ CustomerName, TableId, BookingTime: isoWithSeconds })
         });
 
         if (!res.ok) {
