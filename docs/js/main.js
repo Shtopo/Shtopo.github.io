@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     try {
       // Запитуємо дані профілю (GET /Users/GetUser?userId=...)
       const response = await fetch(
-        `${API_URL}/Users/GetUser?userId=${encodeURIComponent(userId)}`,
+        `${API_URL}/api/Users/GetUser?userId=${encodeURIComponent(userId)}`,
         {
           headers: { "Authorization": "Bearer " + token }
         }
@@ -192,7 +192,10 @@ window.addEventListener("DOMContentLoaded", async () => {
       const customerName = nameInput.value.trim();
       const tableId = parseInt(tableInput.value, 10);
       const bookingTime = timeInput.value;
+
       console.log("Перед отправкой формы:", { customerName, tableId, bookingTime });
+
+
       if (!customerName || !bookingTime) {
         alert("Заповніть всі поля!");
         return;
