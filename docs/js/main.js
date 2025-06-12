@@ -16,8 +16,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     const userNameEl = document.getElementById("user-name");
 
     if (token && userId) {
-        console.log("main.js: Есть token и userId. Показываем профиль.");
-        // Приховуємо посилання «Войти»
+        console.log("main.js: Есть token и userId. Показуємо профіль.");
+        // Приховуємо посилання «Увійти»
         loginLink?.classList.add("visually-hidden");
         // Показуємо блок з аватаром/іменем
         userInfo?.classList.remove("visually-hidden");
@@ -224,7 +224,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
                 if (!res.ok) {
                     const errorText = await res.text();
-                    console.error("Ошибка от сервера:", res.status, errorText);
+                    console.error("Помилка від серверу:", res.status, errorText);
                     alert("Помилка: " + errorText);
                     return;
                 }
