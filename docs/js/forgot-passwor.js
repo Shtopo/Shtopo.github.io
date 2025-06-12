@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = emailInput?.value.trim();
 
         if (!email) {
-            formMessage.textContent = "Будь ласка, введіть ваш email.";
+            formMessage.textContent = "Будь-ласка, введіть ваш email.";
             formMessage.style.color = "red";
             return;
         }
@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 formMessage.style.color = "red";
             }
         } catch (error) {
-            console.error("Ошибка при отправке запроса на восстановление пароля:", error);
-            formMessage.textContent = "Произошла ошибка при отправке запроса. Попробуйте ещё раз.";
+            console.error("Помилка під час надсилання запиту на відновлення пароля:", error);
+            formMessage.textContent = "Сталася помилка під час надсилання запиту. Спробуйте ще раз.";
             formMessage.style.color = "red";
         }
     });
